@@ -1,0 +1,11 @@
+version: "3.6"
+
+services:
+  scribe:
+    build: {{ scribe.lookup.paths.src }}
+    container_name: scribe
+    ports:
+      - "{{ scribe.config.port }}:{{ scribe.config.port }}"
+    env_file:
+      - {{ scribe.lookup.paths.config_scribe }}
+    restart: unless-stopped

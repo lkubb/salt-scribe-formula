@@ -1,0 +1,44 @@
+{
+  "template": "https://github.com/lkubb/salt-template-formula-compose",
+  "commit": "3bf116fca254f07ebcba5a30fcc5f071472ef84a",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "_extensions": [
+        "local_extensions.YAMLDumper"
+      ],
+      "_jinja2_env_vars": {
+        "block_start_string": "{!",
+        "block_end_string": "!}",
+        "variable_start_string": "{=",
+        "variable_end_string": "=}",
+        "comment_start_string": "{@",
+        "comment_end_string": "@}"
+      },
+      "name": "Scribe",
+      "abbr": "scribe",
+      "abbr_pysafe": "scribe",
+      "project_name": "scribe",
+      "containers": "scribe",
+      "git_username": "lkubb",
+      "_lookup": {
+        "paths": {
+          "src": "src"
+        },
+        "repo": "https://git.sr.ht/~edwardloveall/scribe"
+      },
+      "_settings": {
+        "config": {
+          "app_domain": "localhost:5183",
+          "lucky_env": "production",
+          "port": 5183,
+          "secret_key_base": null,
+          "github_personal_access_token": null,
+          "github_username": null
+        }
+      },
+      "_template": "https://github.com/lkubb/salt-template-formula-compose"
+    }
+  },
+  "directory": null
+}

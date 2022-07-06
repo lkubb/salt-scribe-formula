@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set default values.
+---
+values:
+  lookup:
+    rootgroup: root
+    compose:
+      create_pod: null
+      pod_args: null
+      project_name: scribe
+      remove_orphans: true
+      service:
+        container_prefix: null
+        ephemeral: true
+        pod_prefix: null
+        restart_policy: on-failure
+        separator: null
+        stop_timeout: null
+    paths:
+      base: /opt/containers/scribe
+      compose: docker-compose.yml
+      config_scribe: scribe.env
+      src: src
+    user:
+      groups: []
+      home: null
+      name: scribe
+      shell: /usr/sbin/nologin
+      uid: null
+    repo: https://git.sr.ht/~edwardloveall/scribe
+  install:
+    rootless: true
+    remove_all_data_for_sure: false
+  config:
+    app_domain: localhost:5183
+    github_personal_access_token: null
+    github_username: null
+    lucky_env: production
+    port: 5183
+    secret_key_base: null
+  # Just here for testing
+  added_in_defaults: defaults_value
+  winner: defaults
+...
