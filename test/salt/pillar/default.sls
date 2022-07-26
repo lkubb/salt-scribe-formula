@@ -17,6 +17,7 @@ scribe:
         ephemeral: true
         pod_prefix: null
         restart_policy: on-failure
+        restart_sec: 2
         separator: null
         stop_timeout: null
     paths:
@@ -30,6 +31,7 @@ scribe:
       name: scribe
       shell: /usr/sbin/nologin
       uid: null
+      gid: null
     repo: https://git.sr.ht/~edwardloveall/scribe
   install:
     rootless: true

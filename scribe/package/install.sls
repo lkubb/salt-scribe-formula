@@ -22,6 +22,8 @@ Scribe user session is initialized at boot:
   compose.lingering_managed:
     - name: {{ scribe.lookup.user.name }}
     - enable: {{ scribe.install.rootless }}
+    - require:
+      - user: {{ scribe.lookup.user.name }}
 
 Scribe paths are present:
   file.directory:
