@@ -22,6 +22,9 @@
       "containers": "scribe",
       "git_username": "lkubb",
       "_lookup": {
+        "compose": {
+          "build": true
+        },
         "paths": {
           "src": "src"
         },
