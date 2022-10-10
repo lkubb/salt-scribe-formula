@@ -78,3 +78,15 @@ Scribe is installed:
     - require:
       - user: {{ scribe.lookup.user.name }}
 {%- endif %}
+
+{%- if scribe.install.autoupdate_service is not none %}
+
+Podman autoupdate service is managed for Scribe:
+{%-   if scribe.install.rootless %}
+  compose.systemd_service_{{ "enabled" if scribe.install.autoupdate_service else "disabled" }}:
+    - user: {{ scribe.lookup.user.name }}
+{%-   else %}
+  service.{{ "enabled" if scribe.install.autoupdate_service else "disabled" }}:
+{%-   endif %}
+    - name: podman-auto-update.timer
+{%- endif %}

@@ -38,6 +38,8 @@ scribe:
     repo: https://git.sr.ht/~edwardloveall/scribe
   install:
     rootless: true
+    autoupdate: true
+    autoupdate_service: false
     remove_all_data_for_sure: false
   config:
     app_domain: localhost:5183

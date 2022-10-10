@@ -8,6 +8,18 @@
 include:
   - {{ sls_config_clean }}
 
+{%- if scribe.install.autoupdate_service %}
+
+Podman autoupdate service is disabled for Scribe:
+{%-   if scribe.install.rootless %}
+  compose.systemd_service_disabled:
+    - user: {{ scribe.lookup.user.name }}
+{%-   else %}
+  service.disabled:
+{%-   endif %}
+    - name: podman-auto-update.timer
+{%- endif %}
+
 Scribe is absent:
   compose.removed:
     - name: {{ scribe.lookup.paths.compose }}
