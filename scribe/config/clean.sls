@@ -14,5 +14,6 @@ Scribe environment files are absent:
   file.absent:
     - names:
       - {{ scribe.lookup.paths.config_scribe }}
+      - {{ scribe.lookup.paths.base | path_join(".saltcache.yml") }}
     - require:
       - sls: {{ sls_service_clean }}
