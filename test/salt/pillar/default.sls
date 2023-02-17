@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
 scribe:
@@ -12,7 +11,7 @@ scribe:
       pod_args: null
       project_name: scribe
       remove_orphans: true
-      build: True
+      build: true
       build_args: null
       pull: false
       service:
@@ -41,6 +40,7 @@ scribe:
     autoupdate: true
     autoupdate_service: false
     remove_all_data_for_sure: false
+    podman_api: true
   config:
     app_domain: localhost:5183
     github_personal_access_token: null

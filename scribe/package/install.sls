@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as scribe with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
@@ -35,6 +34,23 @@ Scribe paths are present:
     - require:
       - user: {{ scribe.lookup.user.name }}
 
+{%- if scribe.install.podman_api %}
+
+Scribe podman API is enabled:
+  compose.systemd_service_enabled:
+    - name: podman
+    - user: {{ scribe.lookup.user.name }}
+    - require:
+      - Scribe user session is initialized at boot
+
+Scribe podman API is available:
+  compose.systemd_service_running:
+    - name: podman
+    - user: {{ scribe.lookup.user.name }}
+    - require:
+      - Scribe user session is initialized at boot
+{%- endif %}
+
 Scribe repo is present:
   git.latest:
     - name: {{ scribe.lookup.repo }}
@@ -44,8 +60,8 @@ Scribe repo is present:
 Scribe compose file is managed:
   file.managed:
     - name: {{ scribe.lookup.paths.compose }}
-    - source: {{ files_switch(['docker-compose.yml', 'docker-compose.yml.j2'],
-                              lookup='Scribe compose file is present'
+    - source: {{ files_switch(["docker-compose.yml", "docker-compose.yml.j2"],
+                              lookup="Scribe compose file is present"
                  )
               }}
     - mode: '0644'
