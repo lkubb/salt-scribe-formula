@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/lkubb/salt-template-formula-compose",
-  "commit": "249eb39f6241fe5718691b21f7e7d82b962c8aa3",
+  "commit": "796b2c50d2796055ff7b66d17bca6f9ded64f40e",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -21,7 +21,7 @@
       "project_name": "scribe",
       "containers": "scribe",
       "git_username": "lkubb",
-      "_lookup": {
+      "lookup": {
         "compose": {
           "build": true
         },
@@ -30,7 +30,7 @@
         },
         "repo": "https://git.sr.ht/~edwardloveall/scribe"
       },
-      "_settings": {
+      "settings": {
         "config": {
           "app_domain": "localhost:5183",
           "lucky_env": "production",

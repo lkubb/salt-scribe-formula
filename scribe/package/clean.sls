@@ -51,7 +51,7 @@ Scribe compose file is absent:
 
 Scribe podman API is unavailable:
   compose.systemd_service_dead:
-    - name: podman
+    - name: podman.socket
     - user: {{ scribe.lookup.user.name }}
     - onlyif:
       - fun: user.info
@@ -59,7 +59,7 @@ Scribe podman API is unavailable:
 
 Scribe podman API is disabled:
   compose.systemd_service_disabled:
-    - name: podman
+    - name: podman.socket
     - user: {{ scribe.lookup.user.name }}
     - onlyif:
       - fun: user.info
