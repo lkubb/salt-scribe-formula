@@ -2,7 +2,7 @@
 
 {%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as scribe with context %}
-{%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
+{%- from tplroot ~ "/libtofsstack.jinja" import files_switch with context %}
 
 Scribe user account is present:
   user.present:
@@ -60,14 +60,16 @@ Scribe repo is present:
 Scribe compose file is managed:
   file.managed:
     - name: {{ scribe.lookup.paths.compose }}
-    - source: {{ files_switch(["docker-compose.yml", "docker-compose.yml.j2"],
-                              lookup="Scribe compose file is present"
+    - source: {{ files_switch(
+                    ["docker-compose.yml", "docker-compose.yml.j2"],
+                    config=scribe,
+                    lookup="Scribe compose file is present",
                  )
               }}
     - mode: '0644'
     - user: root
     - group: {{ scribe.lookup.rootgroup }}
-    - makedirs: True
+    - makedirs: true
     - template: jinja
     - makedirs: true
     - context:
