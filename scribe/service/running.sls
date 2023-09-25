@@ -34,3 +34,4 @@ Scribe service is running:
 {%- endif %}
     - watch:
       - Scribe is installed
+      - sls: {{ sls_config_file }}

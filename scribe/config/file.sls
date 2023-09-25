@@ -26,7 +26,7 @@ Scribe environment files are managed:
     - template: jinja
     - require:
       - user: {{ scribe.lookup.user.name }}
-    - watch_in:
+    - require_in:
       - Scribe is installed
     - context:
         scribe: {{ scribe | json }}
